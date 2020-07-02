@@ -10,10 +10,10 @@
       >
         <mat-form-field>
           <input
-            formControlName="username"
+            formControlName="email"
             matInput
             type="text"
-            placeholder="Nom"
+            placeholder="Email"
           />
         </mat-form-field>
         <mat-form-field>
@@ -27,6 +27,7 @@
         <button color="primary" mat-raised-button (click)="trySignin()">
           Connexion
         </button>
+        <div *ngIf="error">{{ error }}</div>
       </form>
     </mat-card-content>
   </mat-card>
