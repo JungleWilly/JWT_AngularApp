@@ -19,6 +19,9 @@ import { TopbarComponent } from "./shared/components/topbar/topbar.component";
 // routing
 import { APP_ROUTING } from "./app.routing";
 
+//services
+import { AuthService } from "./shared/services/auth.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -35,7 +38,7 @@ import { APP_ROUTING } from "./app.routing";
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTING),
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
