@@ -2,7 +2,9 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { HttpClientModule } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
+import { ReactiveFormsModule } from "@angular/forms";
 
 //modules
 import { LayoutModule } from "./shared/layout/layout.module";
@@ -29,6 +31,8 @@ import { APP_ROUTING } from "./app.routing";
     BrowserModule,
     BrowserAnimationsModule,
     LayoutModule,
+    HttpClientModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTING),
   ],
   providers: [],
