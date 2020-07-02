@@ -1,11 +1,21 @@
+//module natifs
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { RouterModule } from "@angular/router";
 
+//modules
+import { LayoutModule } from "./shared/layout/layout.module";
+
+//components
 import { AppComponent } from "./app.component";
 import { HomepageComponent } from "./homepage/homepage.component";
-import { SignupComponent } from "./signup/signup.component";
-import { SigninComponent } from "./signin/signin.component";
+import { SignupComponent } from "./auth/signup/signup.component";
+import { SigninComponent } from "./auth/signin/signin.component";
 import { TopbarComponent } from "./shared/components/topbar/topbar.component";
+
+// routing
+import { APP_ROUTING } from "./app.routing";
 
 @NgModule({
   declarations: [
@@ -15,7 +25,12 @@ import { TopbarComponent } from "./shared/components/topbar/topbar.component";
     SigninComponent,
     TopbarComponent,
   ],
-  imports: [BrowserModule],
+  imports: [
+    BrowserModule,
+    BrowserAnimationsModule,
+    LayoutModule,
+    RouterModule.forRoot(APP_ROUTING),
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
