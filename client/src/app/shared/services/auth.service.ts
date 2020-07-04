@@ -31,6 +31,7 @@ export class AuthService {
         token: null,
       });
     }
+    console.log(this.jwtToken.value);
   }
 
   public signup(user: User): Observable<User> {
@@ -51,5 +52,14 @@ export class AuthService {
         localStorage.setItem("jwt", token);
       })
     );
+  }
+
+  public logout(): void {
+    this.jwtToken.next({
+      isAuthenticated: false,
+      token: null,
+    });
+
+    localStorage.removeItem("jwt");
   }
 }
