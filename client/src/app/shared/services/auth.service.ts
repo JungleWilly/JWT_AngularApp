@@ -34,7 +34,7 @@ export class AuthService {
   }
 
   public signup(user: User): Observable<User> {
-    return this.http.post<User>("/api/auth", user);
+    return this.http.post<User>("/api/auth/signup", user);
   }
 
   public signin(credentials: {

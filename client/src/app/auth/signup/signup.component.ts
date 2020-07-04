@@ -33,7 +33,7 @@ export class SignupComponent implements OnInit {
         this.router.navigate(["/signin"]);
       },
       (err) => {
-        this.error = err;
+        this.error = err.error;
       }
     );
   }

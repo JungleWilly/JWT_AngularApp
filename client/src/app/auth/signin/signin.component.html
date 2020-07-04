@@ -24,10 +24,10 @@
             placeholder="mot de passe"
           />
         </mat-form-field>
+        <div style="color: red;" *ngIf="error">{{ error }}</div>
         <button color="primary" mat-raised-button (click)="trySignin()">
           Connexion
         </button>
-        <div *ngIf="error">{{ error }}</div>
       </form>
     </mat-card-content>
   </mat-card>
