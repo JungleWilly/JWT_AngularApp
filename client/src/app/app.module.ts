@@ -2,7 +2,7 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
 import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HttpClientModule } from "@angular/common/http";
+import { HttpClientModule, HTTP_INTERCEPTORS } from "@angular/common/http";
 import { RouterModule } from "@angular/router";
 import { ReactiveFormsModule } from "@angular/forms";
 
@@ -27,6 +27,9 @@ import { UserService } from "./shared/services/user.service";
 //Guards
 import { AuthGuard } from "./shared/guards/auth.guard";
 
+// Interceptors
+import { AuthInterceptor } from "./shared/interceptors/auth.interceptor";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +47,16 @@ import { AuthGuard } from "./shared/guards/auth.guard";
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTING),
   ],
-  providers: [AuthService, UserService, AuthGuard],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AuthInterceptor,
+      multi: true,
+    },
+    AuthService,
+    UserService,
+    AuthGuard,
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

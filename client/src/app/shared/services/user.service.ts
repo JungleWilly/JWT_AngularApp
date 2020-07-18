@@ -16,11 +16,12 @@ export class UserService {
     if (this.currentUser.value) {
       return this.currentUser;
     } else {
-      this.http.get<User>("/api/user/current").pipe(
+      return this.http.get<User>("/api/user/current").pipe(
         tap((user: User) => {
           this.currentUser.next(user);
         }),
         switchMap(() => {
+          console.log(this.currentUser);
           return this.currentUser;
         })
       );

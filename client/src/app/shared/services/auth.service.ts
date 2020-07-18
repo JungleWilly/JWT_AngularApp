@@ -32,7 +32,6 @@ export class AuthService {
         token: null,
       });
     }
-    console.log(this.jwtToken.value);
   }
 
   public signup(user: User): Observable<User> {
