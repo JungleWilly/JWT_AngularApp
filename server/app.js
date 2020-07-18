@@ -6,6 +6,7 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 
 const app = express();
+const index = require("./routes/index");
 
 app.use(logger("dev"));
 app.use(bodyParser.json());
@@ -14,13 +15,13 @@ app.use(cookieParser());
 app.use(express.static(path.join(__dirname, "../public")));
 
 mongoose.connect(
-  "mongodb+srv://angulardyma:123123123@cluster0-urpjt.gcp.mongodb.net/angulardyma?retryWrites=true&w=majority",
+  "mongodb+srv://angularJwtApp:123123123@cluster0-ypbhl.mongodb.net/angularJwtApp?retryWrites=true&w=majority",
   {
     keepAlive: true,
     useUnifiedTopology: true,
-    useNewUrlParser: true
+    useNewUrlParser: true,
   },
-  function(error) {
+  function (error) {
     if (error) {
       console.log(error);
     } else {
@@ -28,6 +29,8 @@ mongoose.connect(
     }
   }
 );
+
+app.use(index);
 
 app.get("*", (req, res) => {
   res.sendFile(path.join(__dirname, "../public/index.html"));

@@ -1,4 +1,4 @@
-<mat-toolbar fxLayoutGap="15px">
+<mat-toolbar color="primary" fxLayoutGap="15px">
   <span class="link" routerLink="/">Mon logo</span>
   <span fxFlex="auto"></span>
   <span
@@ -16,6 +16,7 @@
     fxLayoutAlign="center center"
     fxLayoutGap="20px"
   >
-    <span class="link" (click)="logout()">Déconnexion</span>
+    <span class="link" routerLink="/profile">Mon compte</span>
+    <mat-icon class="link" (click)="logout()">power_settings_new</mat-icon>
   </span>
 </mat-toolbar>
