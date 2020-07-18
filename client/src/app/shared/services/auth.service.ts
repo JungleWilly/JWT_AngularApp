@@ -4,6 +4,7 @@ import { User } from "../models/user.model";
 import { HttpClient } from "@angular/common/http";
 import { JwtToken } from "../models/jwtToken.model";
 import { tap } from "rxjs/operators";
+import { Router } from "@angular/router";
 
 @Injectable({
   providedIn: "root",
@@ -14,7 +15,7 @@ export class AuthService {
     token: null,
   });
 
-  constructor(private http: HttpClient) {
+  constructor(private http: HttpClient, private router: Router) {
     this.initToken();
   }
 
@@ -61,5 +62,6 @@ export class AuthService {
     });
 
     localStorage.removeItem("jwt");
+    this.router.navigate([""]);
   }
 }
