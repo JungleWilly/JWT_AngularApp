@@ -1,1 +1,13 @@
-<p>profile works!</p>
+<div class="py-5" fxLayout="column" fxLayoutAlign="center center">
+  <mat-card>
+    <mat-card-title>Profile</mat-card-title>
+    <mat-card-content
+      *ngIf="currentUser | async; let user"
+      fxLayout="column"
+      fxLayoutGap="15px"
+    >
+      <div>email : {{ user.email }}</div>
+      <div>name : {{ user.name }}</div>
+    </mat-card-content>
+  </mat-card>
+</div>

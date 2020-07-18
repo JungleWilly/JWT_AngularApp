@@ -22,6 +22,7 @@ import { APP_ROUTING } from "./app.routing";
 
 //services
 import { AuthService } from "./shared/services/auth.service";
+import { UserService } from "./shared/services/user.service";
 
 //Guards
 import { AuthGuard } from "./shared/guards/auth.guard";
@@ -43,7 +44,7 @@ import { AuthGuard } from "./shared/guards/auth.guard";
     ReactiveFormsModule,
     RouterModule.forRoot(APP_ROUTING),
   ],
-  providers: [AuthService, AuthGuard],
+  providers: [AuthService, UserService, AuthGuard],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
