@@ -14,7 +14,7 @@ function isLoggedIn(req, res, next) {
       const sub = decoded.sub;
       User.findOne({ _id: sub }).exec((err, user) => {
         if (err || !user) {
-          res.status(401).json("error");
+          return res.status(401).json("error");
         }
         req.user = user;
         next();
